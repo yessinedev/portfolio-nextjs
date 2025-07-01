@@ -1,0 +1,504 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111418;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #283039;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3b4754;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Container queries support */
+@container (min-width: 480px) {
+  .container-480 {
+    /* Styles for containers wider than 480px */
+  }
+}
+
+@container (min-width: 864px) {
+  .container-864 {
+    /* Styles for containers wider than 864px */
+  }
+}
+
+/* Custom animations for hero section */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 3s ease-in-out infinite;
+}
+
+/* Fade in animation for tech badges */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Skills section animations */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+/* Progress bar custom styling */
+.progress-bar {
+  background: linear-gradient(90deg, #3d98f4 0%, #2563eb 100%);
+  transition: width 1s ease-out;
+}
+
+/* Code syntax highlighting */
+.language-javascript .token.keyword {
+  color: #ff7b72;
+}
+
+.language-javascript .token.string {
+  color: #a5d6ff;
+}
+
+.language-javascript .token.function {
+  color: #d2a8ff;
+}
+
+.language-javascript .token.number {
+  color: #79c0ff;
+}
+
+/* Hover effects for skill cards */
+.skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Circular progress animation */
+@keyframes drawCircle {
+  from {
+    stroke-dashoffset: 176;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.circle-progress {
+  animation: drawCircle 1.5s ease-out forwards;
+}
+
+/* Navigation animations */
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-from-right {
+  animation: slideInFromRight 0.3s ease-out forwards;
+}
+
+/* Mobile menu animations */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-scale {
+  animation: fadeInScale 0.2s ease-out forwards;
+}
+
+/* Backdrop blur support */
+@supports (backdrop-filter: blur(0)) {
+  .backdrop-blur-md {
+    backdrop-filter: blur(12px);
+  }
+
+  .backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+  }
+}
+
+/* Focus styles for accessibility */
+.focus-visible:focus {
+  outline: 2px solid #3d98f4;
+  outline-offset: 2px;
+}
+
+/* Mobile navigation transitions */
+.mobile-nav-enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.mobile-nav-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.mobile-nav-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mobile-nav-exit-active {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Mobile hero section optimizations */
+@media (max-width: 768px) {
+  /* Prevent horizontal scrolling */
+  .hero-container {
+    overflow-x: hidden;
+  }
+
+  /* Fixed dimensions for mobile code display */
+  .mobile-code-container {
+    min-height: 280px;
+    max-height: 280px;
+  }
+
+  /* Consistent spacing for mobile */
+  .mobile-hero-spacing {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  /* Prevent text overflow on small screens */
+  .mobile-text-container {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .tablet-code-container {
+    min-height: 320px;
+    max-height: 320px;
+  }
+}
+
+/* Prevent layout shift animations */
+.no-layout-shift {
+  contain: layout style;
+}
+
+/* Code container with fixed dimensions */
+.code-display-container {
+  transition: opacity 0.3s ease-in-out;
+  will-change: opacity;
+}
+
+.code-display-container.transitioning {
+  opacity: 0.7;
+}
+
+/* Responsive floating elements */
+@media (max-width: 640px) {
+  .floating-stat {
+    transform: scale(0.9);
+  }
+
+  .floating-stat-left {
+    left: -8px;
+    bottom: -16px;
+  }
+
+  .floating-stat-right {
+    right: -8px;
+    top: -16px;
+  }
+}
+
+/* Hero section container constraints */
+.hero-section-container {
+  min-height: 100vh;
+  max-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .hero-section-container {
+    min-height: auto;
+    max-height: none;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+/* Prevent content jumping during transitions */
+.stable-layout {
+  contain: layout;
+  height: auto;
+  min-height: fit-content;
+}
+
+/* Mobile-first responsive grid */
+.hero-grid {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+/* Code snippet container with consistent dimensions */
+.code-snippet-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.code-snippet-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.code-snippet-content.entering {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.code-snippet-content.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.code-snippet-content.exiting {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+/* Hamburger menu button animations */
+.hamburger-line {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: currentColor;
+  transition: all 0.3s ease-in-out;
+  transform-origin: center;
+}
+
+/* Mobile menu specific styles */
+.mobile-menu {
+  /* Ensure menu is above everything */
+  z-index: 9999;
+  /* Smooth hardware acceleration */
+  will-change: transform;
+  /* Prevent text selection during animation */
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Mobile menu backdrop */
+.mobile-menu-backdrop {
+  /* Ensure backdrop covers everything */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 9998;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Prevent body scroll when menu is open */
+.menu-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+/* Touch-friendly button sizing */
+@media (max-width: 1024px) {
+  .menu-trigger {
+    min-width: 44px;
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+
+  .mobile-menu a,
+  .mobile-menu button {
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .hamburger-line {
+    background-color: currentColor;
+  }
+
+  .mobile-menu {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .hamburger-line,
+  .mobile-menu,
+  .mobile-menu-backdrop {
+    transition: none;
+  }
+
+  .animate-spin-slow,
+  .animate-bounce-slow,
+  .animate-pulse {
+    animation: none;
+  }
+}
+
+/* iOS Safari specific fixes */
+@supports (-webkit-touch-callout: none) {
+  .mobile-menu {
+    /* Fix for iOS Safari viewport issues */
+    height: 100vh;
+    height: -webkit-fill-available;
+  }
+
+  .menu-trigger {
+    /* Prevent iOS zoom on double tap */
+    touch-action: manipulation;
+  }
+}
+
+/* Android Chrome specific fixes */
+@media screen and (max-width: 1024px) {
+  .mobile-menu {
+    /* Ensure menu works on Android Chrome */
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
