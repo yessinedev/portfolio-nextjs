@@ -73,13 +73,13 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
       {/* Hero Image */}
       <div className="@container">
         <div className="@[480px]:px-4 @[480px]:py-3">
-          <div className="w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden bg-[#121417] @[480px]:rounded-xl min-h-80">
+          <div className="w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden bg-[#121417] @[480px]:rounded-lg min-h-80">
             <Image
               src={project.heroImage || "/placeholder.svg"}
               alt={project.title}
               width={800}
               height={400}
-              className="w-full h-full object-cover rounded-xl"
+              className="w-full h-full object-cover rounded-lg"
             />
           </div>
         </div>
@@ -135,7 +135,7 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
 
       {/* Call to Action */}
       <section className="px-4 py-8">
-        <div className="bg-[#1b2127] rounded-xl p-6 text-center space-y-4">
+        <div className="bg-[#1b2127] rounded-lg p-6 text-center space-y-4">
           <h3 className="text-white text-xl font-bold">Interested in this project?</h3>
           <p className="text-[#a1abb5] text-sm">
             I'd love to discuss the technical details and challenges I overcame during development.

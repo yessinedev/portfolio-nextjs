@@ -1,0 +1,58 @@
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("PRISMA_DATABASE_URL")
+}
+
+model SkillCategory {
+  id          Int     @id @default(autoincrement())
+  title       String
+  description String
+  icon        String?
+  color       String
+  gradient    String
+  skills      Skill[]
+}
+
+model Skill {
+  id          Int           @id @default(autoincrement())
+  name        String
+  description String
+  icon        String?
+  years       Int
+  projects    Project[] @relation("SkillProjects")
+  category    SkillCategory @relation(fields: [categoryId], references: [id])
+  categoryId  Int
+}
+
+model Project {
+  id           Int           @id @default(autoincrement())
+  title        String
+  subtitle     String
+  heroImage    String
+  overview     String
+  technologies String
+  role         String
+  links        ProjectLink[]
+  skills       Skill[] @relation("SkillProjects")
+}
+
+model ProjectLink {
+  id        Int      @id @default(autoincrement())
+  name      String
+  url       String
+  type      ProjectLinkType
+  project   Project @relation(fields: [projectId], references: [id])
+  projectId Int
+}
+
+enum ProjectLinkType {
+  demo
+  github
+  case_study
+}

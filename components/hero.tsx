@@ -122,7 +122,7 @@ export default function Hero() {
               <Button
                 asChild
                 size="lg"
-                className="bg-[#3d98f4] hover:bg-[#2d7bd4] text-white font-semibold px-6 sm:px-8 py-3 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[#3d98f4]/25"
+                className="bg-[#3d98f4] hover:bg-[#2d7bd4] text-white font-semibold px-6 sm:px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[#3d98f4]/25"
               >
                 <Link href="/#projects">
                   View My Work
@@ -132,7 +132,7 @@ export default function Hero() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-[#3b4754] text-white hover:bg-[#1b2127] font-semibold px-6 sm:px-8 py-3 rounded-xl transition-all duration-300"
+                className="border-[#3b4754] text-white hover:bg-[#1b2127] font-semibold px-6 sm:px-8 py-3 rounded-lg transition-all duration-300"
               >
                 Get In Touch
               </Button>
@@ -143,7 +143,7 @@ export default function Hero() {
           <div className="relative order-1 lg:order-2">
             {/* Fixed container to prevent layout shifts */}
             <div className="w-full max-w-md mx-auto lg:max-w-none">
-              <div className="bg-[#0d1117] rounded-xl border border-[#30363d] overflow-hidden shadow-2xl">
+              <div className="bg-[#0d1117] rounded-lg border border-[#30363d] overflow-hidden shadow-2xl">
                 {/* Terminal Header */}
                 <div className="flex items-center gap-2 px-4 py-3 bg-[#161b22] border-b border-[#30363d]">
                   <div className="flex gap-2">
@@ -179,14 +179,14 @@ export default function Hero() {
               </div>
 
               {/* Floating Stats - Responsive positioning */}
-              <div className="absolute -bottom-3 -left-1 sm:-bottom-4 sm:-left-4 bg-[#1b2127] border border-[#3b4754] rounded-xl p-3 sm:p-4 shadow-lg">
+              <div className="absolute -bottom-3 -left-1 sm:-bottom-4 sm:-left-4 bg-[#1b2127] border border-[#3b4754] rounded-lg p-3 sm:p-4 shadow-lg">
                 <div className="text-center">
                   <div className="text-xl sm:text-2xl font-bold text-[#3d98f4]">50+</div>
                   <div className="text-xs text-gray-400">Projects Built</div>
                 </div>
               </div>
 
-              <div className="absolute -top-3 -right-1 sm:-top-4 sm:-right-4 bg-[#1b2127] border border-[#3b4754] rounded-xl p-3 sm:p-4 shadow-lg">
+              <div className="absolute -top-3 -right-1 sm:-top-4 sm:-right-4 bg-[#1b2127] border border-[#3b4754] rounded-lg p-3 sm:p-4 shadow-lg">
                 <div className="text-center">
                   <div className="text-xl sm:text-2xl font-bold text-[#10b981]">3+</div>
                   <div className="text-xs text-gray-400">Years Experience</div>

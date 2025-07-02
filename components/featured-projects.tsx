@@ -111,7 +111,7 @@ export default function FeaturedProjects() {
                 <div className="flex items-center justify-between pt-2">
                   <Button
                     asChild
-                    className="bg-[#3d98f4] hover:bg-[#2d7bd4] text-white font-medium px-6 py-2 rounded-xl transition-all duration-300 transform hover:scale-105"
+                    className="bg-[#3d98f4] hover:bg-[#2d7bd4] text-white font-medium px-6 py-2 rounded-lg transition-all duration-300 transform hover:scale-105"
                   >
                     <Link href={`/projects/${project.slug}`} className="flex items-center gap-2">
                       View Details
@@ -152,7 +152,7 @@ export default function FeaturedProjects() {
           <Button
             asChild
             size="lg"
-            className="bg-gradient-to-r from-[#3d98f4] to-[#10b981] hover:from-[#2d7bd4] hover:to-[#059669] text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            className="bg-gradient-to-r from-[#3d98f4] to-[#10b981] hover:from-[#2d7bd4] hover:to-[#059669] text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
           >
             <Link href="/projects" className="flex items-center gap-2">
               View All Projects

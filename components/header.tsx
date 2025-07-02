@@ -168,7 +168,7 @@ export default function Header() {
                 variant="outline"
                 className="bg-[#283039] border-[#3b4754] text-white hover:bg-[#3a4651] hover:border-[#3d98f4] transition-all duration-300"
               >
-                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 rounded-xl">
+                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 rounded-lg">
                   <Download className="w-4 h-4" />
                   Resume
                 </a>
@@ -193,7 +193,7 @@ export default function Header() {
             <div className="lg:hidden">
               <button
                 onClick={toggleMenu}
-                className="menu-trigger relative w-10 h-10 flex items-center justify-center text-white hover:bg-[#283039] hover:text-[#3d98f4] rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#3d98f4] focus:ring-offset-2 focus:ring-offset-[#111418]"
+                className="menu-trigger relative w-10 h-10 flex items-center justify-center text-white hover:bg-[#283039] hover:text-[#3d98f4] rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#3d98f4] focus:ring-offset-2 focus:ring-offset-[#111418]"
                 aria-label={isOpen ? "Close menu" : "Open menu"}
                 aria-expanded={isOpen}
                 aria-controls="mobile-menu"
@@ -278,7 +278,7 @@ export default function Header() {
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="w-8 h-8 flex items-center justify-center text-white hover:bg-[#283039] hover:text-[#3d98f4] rounded-xl transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#3d98f4]"
+                className="w-8 h-8 flex items-center justify-center text-white hover:bg-[#283039] hover:text-[#3d98f4] rounded-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#3d98f4]"
                 aria-label="Close menu"
               >
                 <X className="w-5 h-5" />
@@ -294,7 +294,7 @@ export default function Header() {
                     key={link.name}
                     href={link.href}
                     onClick={handleLinkClick}
-                    className="flex items-center gap-4 p-4 text-white hover:bg-[#1b2127] hover:text-[#3d98f4] rounded-xl transition-all duration-300 group"
+                    className="flex items-center gap-4 p-4 text-white hover:bg-[#1b2127] hover:text-[#3d98f4] rounded-lg transition-all duration-300 group"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <IconComponent className="w-5 h-5 text-[#9cabba] group-hover:text-[#3d98f4] transition-colors duration-300" />
@@ -319,7 +319,7 @@ export default function Header() {
               </Button>
 
               {/* Profile Section */}
-              <div className="flex items-center gap-3 p-4 bg-[#1b2127] rounded-xl">
+              <div className="flex items-center gap-3 p-4 bg-[#1b2127] rounded-lg">
                 <div className="relative">
                   <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#3b4754]">
                     <Image

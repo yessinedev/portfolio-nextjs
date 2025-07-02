@@ -179,7 +179,7 @@ export default function Contact() {
                 return (
                   <Card
                     key={info.label}
-                    className="rounded-xl bg-gradient-to-br from-[#1b2127] to-[#151a1f] border-[#3b4754] hover:border-[#3d98f4]/50 transition-all duration-300 group cursor-pointer"
+                    className="rounded-lg bg-gradient-to-br from-[#1b2127] to-[#151a1f] border-[#3b4754] hover:border-[#3d98f4]/50 transition-all duration-300 group cursor-pointer"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <CardContent className="p-3 sm:p-4">
@@ -190,7 +190,7 @@ export default function Contact() {
                         rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}
                       >
                         <div
-                          className={`p-2 rounded-xl bg-gradient-to-r ${info.color} group-hover:scale-110 transition-transform duration-300`}
+                          className={`p-2 rounded-lg bg-gradient-to-r ${info.color} group-hover:scale-110 transition-transform duration-300`}
                         >
                           <IconComponent className="w-4 h-4 text-white" />
                         </div>
@@ -208,7 +208,7 @@ export default function Contact() {
             </div>
 
             {/* Availability */}
-            <Card className="rounded-xl bg-gradient-to-br from-[#1b2127] to-[#151a1f] border-[#3b4754]">
+            <Card className="rounded-lg bg-gradient-to-br from-[#1b2127] to-[#151a1f] border-[#3b4754]">
               <CardContent className="p-4 sm:p-6 space-y-4">
                 <div className="flex items-center gap-2">
                   <Clock className="w-5 h-5 text-[#10b981]" />
@@ -231,7 +231,7 @@ export default function Contact() {
             </Card>
 
             {/* Quick Stats */}
-            <Card className="rounded-xl bg-gradient-to-br from-[#1b2127] to-[#151a1f] border-[#3b4754]">
+            <Card className="rounded-lg bg-gradient-to-br from-[#1b2127] to-[#151a1f] border-[#3b4754]">
               <CardContent className="p-4 sm:p-6">
                 <div className="grid grid-cols-2 gap-4 text-center">
                   <div className="space-y-1">
@@ -249,7 +249,7 @@ export default function Contact() {
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <Card className="rounded-xl bg-gradient-to-br from-[#1b2127] to-[#151a1f] border-[#3b4754] overflow-hidden">
+            <Card className="rounded-lg bg-gradient-to-br from-[#1b2127] to-[#151a1f] border-[#3b4754] overflow-hidden">
               <CardContent className="p-6 sm:p-8">
                 <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
                   {/* Form Header */}
@@ -273,7 +273,7 @@ export default function Contact() {
                         placeholder="Enter your full name"
                         value={formData.name}
                         onChange={handleChange}
-                        className={`rounded-xl bg-[#283039] border-[#3b4754] text-white placeholder:text-[#9cabba] focus:border-[#3d98f4] focus:ring-[#3d98f4] transition-colors ${
+                        className={`rounded-lg bg-[#283039] border-[#3b4754] text-white placeholder:text-[#9cabba] focus:border-[#3d98f4] focus:ring-[#3d98f4] transition-colors ${
                           errors.name ? "border-red-500 focus:border-red-500 focus:ring-red-500" : ""
                         }`}
                       />
@@ -297,7 +297,7 @@ export default function Contact() {
                         placeholder="Enter your email address"
                         value={formData.email}
                         onChange={handleChange}
-                        className={`rounded-xl bg-[#283039] border-[#3b4754] text-white placeholder:text-[#9cabba] focus:border-[#3d98f4] focus:ring-[#3d98f4] transition-colors ${
+                        className={`rounded-lg bg-[#283039] border-[#3b4754] text-white placeholder:text-[#9cabba] focus:border-[#3d98f4] focus:ring-[#3d98f4] transition-colors ${
                           errors.email ? "border-red-500 focus:border-red-500 focus:ring-red-500" : ""
                         }`}
                       />
@@ -322,7 +322,7 @@ export default function Contact() {
                       placeholder="What's this about?"
                       value={formData.subject}
                       onChange={handleChange}
-                      className={`rounded-xl bg-[#283039] border-[#3b4754] text-white placeholder:text-[#9cabba] focus:border-[#3d98f4] focus:ring-[#3d98f4] transition-colors ${
+                      className={`rounded-lg bg-[#283039] border-[#3b4754] text-white placeholder:text-[#9cabba] focus:border-[#3d98f4] focus:ring-[#3d98f4] transition-colors ${
                         errors.subject ? "border-red-500 focus:border-red-500 focus:ring-red-500" : ""
                       }`}
                     />
@@ -347,7 +347,7 @@ export default function Contact() {
                       value={formData.message}
                       onChange={handleChange}
                       rows={6}
-                      className={`rounded-xl bg-[#283039] border-[#3b4754] text-white placeholder:text-[#9cabba] focus:border-[#3d98f4] focus:ring-[#3d98f4] transition-colors resize-none ${
+                      className={`rounded-lg bg-[#283039] border-[#3b4754] text-white placeholder:text-[#9cabba] focus:border-[#3d98f4] focus:ring-[#3d98f4] transition-colors resize-none ${
                         errors.message ? "border-red-500 focus:border-red-500 focus:ring-red-500" : ""
                       }`}
                     />
@@ -369,7 +369,7 @@ export default function Contact() {
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-gradient-to-r from-[#3d98f4] to-[#2563eb] hover:from-[#2d7bd4] hover:to-[#1d4ed8] text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                      className="w-full bg-gradient-to-r from-[#3d98f4] to-[#2563eb] hover:from-[#2d7bd4] hover:to-[#1d4ed8] text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                     >
                       {isSubmitting ? (
                         <div className="flex items-center gap-2">
@@ -387,7 +387,7 @@ export default function Contact() {
 
                   {/* Status Messages */}
                   {submitStatus === "success" && (
-                    <div className="flex items-center gap-2 p-4 bg-green-500/10 border border-green-500/20 rounded-xl">
+                    <div className="flex items-center gap-2 p-4 bg-green-500/10 border border-green-500/20 rounded-lg">
                       <CheckCircle className="w-5 h-5 text-green-400" />
                       <div>
                         <p className="text-green-400 font-medium">Message sent successfully!</p>
@@ -397,7 +397,7 @@ export default function Contact() {
                   )}
 
                   {submitStatus === "error" && (
-                    <div className="flex items-center gap-2 p-4 bg-red-500/10 border border-red-500/20 rounded-xl">
+                    <div className="flex items-center gap-2 p-4 bg-red-500/10 border border-red-500/20 rounded-lg">
                       <AlertCircle className="w-5 h-5 text-red-400" />
                       <div>
                         <p className="text-red-400 font-medium">Failed to send message</p>
@@ -418,7 +418,7 @@ export default function Contact() {
             <Button
               asChild
               variant="outline"
-              className="bg-[#1b2127] rounded-xl border-[#3b4754] text-white hover:bg-[#283039] hover:border-[#3d98f4]"
+              className="bg-[#1b2127] rounded-lg border-[#3b4754] text-white hover:bg-[#283039] hover:border-[#3d98f4]"
             >
               <a href="https://linkedin.com/in/yessine-agrebi" target="_blank" rel="noopener noreferrer">
                 LinkedIn
@@ -427,7 +427,7 @@ export default function Contact() {
             <Button
               asChild
               variant="outline"
-              className="bg-[#1b2127] rounded-xl border-[#3b4754] text-white hover:bg-[#283039] hover:border-[#3d98f4]"
+              className="bg-[#1b2127] rounded-lg border-[#3b4754] text-white hover:bg-[#283039] hover:border-[#3d98f4]"
             >
               <a href="https://github.com/yessine-agrebi" target="_blank" rel="noopener noreferrer">
                 GitHub
@@ -436,7 +436,7 @@ export default function Contact() {
             <Button
               asChild
               variant="outline"
-              className="bg-[#1b2127] rounded-xl border-[#3b4754] text-white hover:bg-[#283039] hover:border-[#3d98f4]"
+              className="bg-[#1b2127] rounded-lg border-[#3b4754] text-white hover:bg-[#283039] hover:border-[#3d98f4]"
             >
               <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
                 Resume

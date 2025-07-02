@@ -141,7 +141,7 @@ export default function ProjectsGrid() {
                   placeholder="Search projects, technologies..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10 rounded-xl bg-[#283039] border-[#3b4754] text-white placeholder:text-[#9cabba] focus:border-[#3d98f4]"
+                  className="pl-10 rounded-lg bg-[#283039] border-[#3b4754] text-white placeholder:text-[#9cabba] focus:border-[#3d98f4]"
                 />
               </div>
 
@@ -162,8 +162,8 @@ export default function ProjectsGrid() {
                       onClick={() => setSelectedCategory(category)}
                       className={
                         selectedCategory === category
-                          ? "bg-[#3d98f4] text-white rounded-xl"
-                          : "rounded-xl bg-transparent border-[#3b4754] text-[#9cabba] hover:border-[#3d98f4] hover:text-white"
+                          ? "bg-[#3d98f4] text-white rounded-lg"
+                          : "rounded-lg bg-transparent border-[#3b4754] text-[#9cabba] hover:border-[#3d98f4] hover:text-white"
                       }
                     >
                       {category}
@@ -181,8 +181,8 @@ export default function ProjectsGrid() {
                       onClick={() => setSelectedYear(year)}
                       className={
                         selectedYear === year
-                          ? "bg-[#10b981] text-white rounded-xl"
-                          : "rounded-xl bg-transparent border-[#3b4754] text-[#9cabba] hover:border-[#10b981] hover:text-white"
+                          ? "bg-[#10b981] text-white rounded-lg"
+                          : "rounded-lg bg-transparent border-[#3b4754] text-[#9cabba] hover:border-[#10b981] hover:text-white"
                       }
                     >
                       {year}
@@ -281,7 +281,7 @@ export default function ProjectsGrid() {
                     <Button
                       asChild
                       size="sm"
-                      className="bg-[#3d98f4] hover:bg-[#2d7bd4] text-white font-medium px-4 py-2 rounded-xl transition-all duration-300"
+                      className="bg-[#3d98f4] hover:bg-[#2d7bd4] text-white font-medium px-4 py-2 rounded-lg transition-all duration-300"
                     >
                       <Link href={`/projects/${project.slug}`} className="flex items-center gap-2">
                         View Details
