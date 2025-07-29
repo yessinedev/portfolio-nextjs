@@ -10,11 +10,9 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Sarah Chen - Software Developer Portfolio",
+  title: "Yessine Agrebi - Software Developer Portfolio",
   description:
-    "A passionate software developer with a focus on creating innovative and user-friendly applications. Specializing in full-stack development with React, Node.js, and Python.",
-    generator: 'v0.dev'
-}
+    "A passionate software developer with a focus on creating innovative and user-friendly applications. Specializing in full-stack development with Nextjs, Nestjs, and Prisma."}
 
 export default function RootLayout({
   children,

@@ -4,7 +4,7 @@ import ProjectsGrid from "@/components/projects-grid"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Projects - Sarah Chen | Full-Stack Developer",
+  title: "Projects - Yessine Agrebi | Full-Stack Developer",
   description:
     "Explore my complete portfolio of web applications, mobile apps, and software solutions. Built with modern technologies and best practices.",
 }

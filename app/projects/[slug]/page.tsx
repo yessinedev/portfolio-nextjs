@@ -68,7 +68,11 @@ const projects = {
       "Built with Vue.js for the frontend, Python with Django for the backend, TensorFlow for machine learning models, PostgreSQL for data storage, and Docker for containerization and deployment.",
     role: "Led the development of the machine learning pipeline and data visualization components. Implemented predictive models that improved forecasting accuracy by 40% and created an intuitive dashboard interface that reduced report generation time by 75%.",
     links: [
-      { name: "Live Demo", url: "https://analytics.example.com", type: "demo" as "demo" },
+      {
+        name: "Live Demo",
+        url: "https://analytics.example.com",
+        type: "demo" as "demo",
+      },
       {
         name: "GitHub Repository",
         url: "https://github.com/example/analytics",
@@ -83,7 +87,7 @@ const projects = {
   },
 };
 
-export default function ProjectPage({ params }: { params: { slug: string } }) {
+export default async function ProjectPage({ params }: { params: { slug: string } }) {
   const project = projects[params.slug as keyof typeof projects];
 
   if (!project) {

@@ -333,7 +333,7 @@ export default function Header() {
                   <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-[#10b981] border-2 border-[#1b2127] rounded-full"></div>
                 </div>
                 <div>
-                  <p className="text-white font-medium text-sm">Sarah Chen</p>
+                  <p className="text-white font-medium text-sm">Yessine Agrebi</p>
                   <p className="text-[#9cabba] text-xs">Full-Stack Developer</p>
                   <div className="flex items-center gap-1 mt-1">
                     <div className="w-2 h-2 bg-[#10b981] rounded-full"></div>
@@ -351,7 +351,7 @@ export default function Header() {
                   className="bg-[#283039] border-[#3b4754] text-white hover:bg-[#3a4651] hover:border-[#3d98f4]"
                   onClick={handleLinkClick}
                 >
-                  <a href="https://linkedin.com/in/sarahchen" target="_blank" rel="noopener noreferrer">
+                  <a href="https://linkedin.com/in/yessine-agrebi" target="_blank" rel="noopener noreferrer">
                     LinkedIn
                   </a>
                 </Button>
@@ -362,7 +362,7 @@ export default function Header() {
                   className="bg-[#283039] border-[#3b4754] text-white hover:bg-[#3a4651] hover:border-[#3d98f4]"
                   onClick={handleLinkClick}
                 >
-                  <a href="https://github.com/sarahchen" target="_blank" rel="noopener noreferrer">
+                  <a href="https://github.com/yessine-agrebi" target="_blank" rel="noopener noreferrer">
                     GitHub
                   </a>
                 </Button>

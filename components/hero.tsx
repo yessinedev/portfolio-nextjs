@@ -6,7 +6,14 @@ import { useEffect, useState } from "react"
 import { ChevronRight, Code2, Sparkles } from "lucide-react"
 import Link from "next/link"
 
-const techStack = ["React", "Next.js", "Javascript", "TypeScript", "Nestjs.js", "Spring Boot",  "MongoDB", "PostgreSQL", "Git"]
+// const fetchTechStack = async () => {
+//   const res = await fetch("http://localhost:3000/api/skills")
+//   if (!res.ok) {
+//     throw new Error("Failed to fetch skills")
+//   }
+//   const skills = await res.json()
+//   return skills.map((skill: Skill) => skill.name)
+// }
 
 const codeSnippets = [
   {
@@ -38,6 +45,10 @@ export default function Hero() {
   const [currentSnippet, setCurrentSnippet] = useState(0)
   const [displayedText, setDisplayedText] = useState("")
   const [isTyping, setIsTyping] = useState(true)
+  const [techStack, setTechStack] = useState<string[]>([])
+
+  
+
 
   // Typewriter effect for the main headline
   const headline = "Hi, I'm Yessine Agrebi"
@@ -103,9 +114,9 @@ export default function Hero() {
               <div className="space-y-3">
                 <p className="text-sm text-gray-400 font-medium">Technologies I work with:</p>
                 <div className="flex flex-wrap gap-2">
-                  {techStack.map((tech, index) => (
+                  {techStack?.map((tech, index) => (
                     <Badge
-                      key={tech}
+                      key={index}
                       variant="outline"
                       className="bg-[#1b2127] border-[#3b4754] text-gray-300 hover:border-[#3d98f4] transition-colors duration-300 text-xs sm:text-sm"
                       style={{ animationDelay: `${index * 100}ms` }}
