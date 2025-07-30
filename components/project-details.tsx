@@ -173,7 +173,7 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
             Interested in this project?
           </h3>
           <p className="text-[#a1abb5] text-sm">
-            I'd love to discuss the technical details and challenges I overcame
+            I&apos;d love to discuss the technical details and challenges I overcame
             during development.
           </p>
           <Link href="/#contact">

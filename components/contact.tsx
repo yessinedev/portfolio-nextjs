@@ -110,10 +110,10 @@ export default function Contact() {
           </span>
         </div>
         <h2 className="text-white text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight">
-          Let's Work Together
+          Let&apos;s Work Together
         </h2>
         <p className="text-[#9cabba] text-base sm:text-lg max-w-2xl mx-auto">
-          Have a project in mind or want to discuss opportunities? I'd love to
+          Have a project in mind or want to discuss opportunities? I&apos;d love to
           hear from you.
         </p>
       </div>
@@ -234,7 +234,7 @@ export default function Contact() {
                       Send me a message
                     </h3>
                     <p className="text-[#9cabba] text-sm">
-                      Fill out the form below and I'll get back to you as soon
+                      Fill out the form below and I&apos;ll get back to you as soon
                       as possible.
                     </p>
                   </div>

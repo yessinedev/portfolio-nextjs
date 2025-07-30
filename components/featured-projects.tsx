@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ExternalLink, Github, Calendar } from "lucide-react";
+import { ArrowRight, ExternalLink, Github } from "lucide-react";
 import { client } from "@/sanity/lib/client";
 import { Project } from "@/lib/types";
 
@@ -57,7 +57,7 @@ export default async function FeaturedProjects() {
       {/* Featured Projects Grid */}
       <div className="max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
-          {featuredProjects.map((project, index) => (
+          {featuredProjects.map((project) => (
             <div
               key={project._id}
               className="group relative bg-gradient-to-br from-[#1b2127] to-[#151a1f] rounded-2xl overflow-hidden border border-[#3b4754] hover:border-[#3d98f4]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[#3d98f4]/10"

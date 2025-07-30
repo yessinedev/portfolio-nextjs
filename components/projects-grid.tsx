@@ -31,7 +31,7 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
 
       return matchesSearch;
     });
-  }, [searchTerm]);
+  }, [searchTerm, projects]);
 
   return (
     <div className="min-h-screen py-16">
@@ -209,7 +209,7 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
                   No projects found
                 </h3>
                 <p className="text-[#9cabba] max-w-md mx-auto">
-                  Try adjusting your search terms or filters to find what you're
+                  Try adjusting your search terms or filters to find what you&apos;re
                   looking for.
                 </p>
                 <Button

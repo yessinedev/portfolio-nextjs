@@ -1,19 +1,11 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
+// import { Badge } from "@/components/ui/badge"
 import { useEffect, useState } from "react"
 import { ChevronRight, Code2, Sparkles } from "lucide-react"
 import Link from "next/link"
 
-// const fetchTechStack = async () => {
-//   const res = await fetch("http://localhost:3000/api/skills")
-//   if (!res.ok) {
-//     throw new Error("Failed to fetch skills")
-//   }
-//   const skills = await res.json()
-//   return skills.map((skill: Skill) => skill.name)
-// }
 
 const codeSnippets = [
   {
@@ -45,7 +37,6 @@ export default function Hero() {
   const [currentSnippet, setCurrentSnippet] = useState(0)
   const [displayedText, setDisplayedText] = useState("")
   const [isTyping, setIsTyping] = useState(true)
-  const [techStack, setTechStack] = useState<string[]>([])
 
   
 
@@ -110,7 +101,7 @@ export default function Hero() {
                 solutions that make a difference.
               </p>
 
-              {/* Tech Stack Badges */}
+              {/* Tech Stack Badges
               <div className="space-y-3">
                 <p className="text-sm text-gray-400 font-medium">Technologies I work with:</p>
                 <div className="flex flex-wrap gap-2">
@@ -125,7 +116,7 @@ export default function Hero() {
                     </Badge>
                   ))}
                 </div>
-              </div>
+              </div> */}
             </div>
 
             {/* CTA Buttons */}

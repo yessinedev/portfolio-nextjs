@@ -8,7 +8,8 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
+    domains: ["cdn.sanity.io"],
   },
-}
+};
 
-export default nextConfig
+export default nextConfig;

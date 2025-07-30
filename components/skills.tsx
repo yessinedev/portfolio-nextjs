@@ -3,7 +3,7 @@
 import React from "react";
 
 import { Card, CardContent } from "@/components/ui/card";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Zap, Brain, Users, Target } from "lucide-react";
 import { SkillCategory } from "@/lib/types";
 import IconRenderer from "./IconRenderer";
@@ -21,23 +21,10 @@ export default function Skills({
   skillCategories: SkillCategory[];
 }) {
   const [activeCategory, setActiveCategory] = useState(0);
-  const [animatedLevels, setAnimatedLevels] = useState<{
-    [key: string]: number;
-  }>({});
+  
 
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      const levels: { [key: string]: number } = {};
-      softSkills.forEach((skill) => {
-        levels[skill.name] = skill.level;
-      });
-      setAnimatedLevels(levels);
-    }, 500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
+  
   return (
     <section
       id="skills"
