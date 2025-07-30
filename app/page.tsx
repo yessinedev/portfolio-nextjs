@@ -1,9 +1,9 @@
 import Header from "@/components/header"
 import Hero from "@/components/hero"
 import FeaturedProjects from "@/components/featured-projects"
-import Skills from "@/components/skills"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
+import SkillsServer from "@/components/SkillsServer"
 
 export default function Home() {
   return (
@@ -17,7 +17,7 @@ export default function Home() {
           <div className="layout-content-container flex flex-col max-w-[1200px] flex-1">
             <Hero />
             <FeaturedProjects />
-            <Skills />
+            <SkillsServer />
             <Contact />
           </div>
         </div>

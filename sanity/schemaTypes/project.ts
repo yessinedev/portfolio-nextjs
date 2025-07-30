@@ -9,7 +9,6 @@ export const project = defineType({
     defineField({ name: 'subtitle', type: 'string' }),
     defineField({ name: 'heroImage', type: 'image' }),
     defineField({ name: 'overview', type: 'text' }),
-    defineField({ name: 'technologies', type: 'string' }),
     defineField({ name: 'role', type: 'string' }),
     defineField({ name: 'featured', type: 'boolean', initialValue: false }),
     defineField({

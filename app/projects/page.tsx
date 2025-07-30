@@ -1,15 +1,42 @@
-import Header from "@/components/header"
-import Footer from "@/components/footer"
-import ProjectsGrid from "@/components/projects-grid"
-import type { Metadata } from "next"
+import Header from "@/components/header";
+import Footer from "@/components/footer";
+import ProjectsGrid from "@/components/projects-grid";
+import type { Metadata } from "next";
+import { Project } from "@/lib/types";
+import { client } from "@/sanity/lib/client";
+
+export async function fetchProjects(): Promise<Project[]> {
+  const query = `
+    *[_type == "project"]{
+      _id,
+      title,
+      subtitle,
+      "image": heroImage.asset->url,
+      overview,
+      role,
+      featured,
+      skills[]->{
+        _id,
+        name,
+        icon
+      },
+      role,
+      links
+    }
+  `;
+
+  const projects: Project[] = await client.fetch(query);
+  return projects;
+}
 
 export const metadata: Metadata = {
   title: "Projects - Yessine Agrebi | Full-Stack Developer",
   description:
     "Explore my complete portfolio of web applications, mobile apps, and software solutions. Built with modern technologies and best practices.",
-}
+};
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  const projects = await fetchProjects();
   return (
     <div
       className="relative flex size-full min-h-screen flex-col bg-[#111418] dark group/design-root overflow-x-hidden"
@@ -18,10 +45,10 @@ export default function ProjectsPage() {
       <div className="layout-container flex h-full grow flex-col">
         <Header />
         <main className="flex-1">
-          <ProjectsGrid />
+          <ProjectsGrid projects={projects} />
         </main>
         <Footer />
       </div>
     </div>
-  )
+  );
 }
