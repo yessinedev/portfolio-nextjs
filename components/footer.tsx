@@ -9,24 +9,28 @@ export default function Footer() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="https://x.com/YessineAgrebi"
+              target="_blank" rel="noopener noreferrer"
               className="text-[#9cabba] hover:text-white transition-colors"
             >
               <Twitter className="w-6 h-6" />
             </Link>
             <Link
               href="https://linkedin.com/in/yessine-agrebi"
+              target="_blank" rel="noopener noreferrer"
               className="text-[#9cabba] hover:text-white transition-colors"
             >
               <Linkedin className="w-6 h-6" />
             </Link>
             <Link
               href="https://github.com/yessine-agrebi"
+              target="_blank" rel="noopener noreferrer"
               className="text-[#9cabba] hover:text-white transition-colors"
             >
               <Github className="w-6 h-6" />
             </Link>
             <Link
               href="https://github.com/yessinedev"
+              target="_blank" rel="noopener noreferrer"
               className="text-[#9cabba] hover:text-white transition-colors"
             >
               <Github className="w-6 h-6" />
