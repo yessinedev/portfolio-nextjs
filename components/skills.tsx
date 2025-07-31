@@ -135,7 +135,7 @@ export default function Skills({
               <div className="grid grid-cols-3 gap-6 sm:gap-8 text-center">
                 <div className="space-y-2">
                   <div className="text-2xl sm:text-3xl font-bold text-[#3d98f4]">
-                    50+
+                    25+
                   </div>
                   <div className="text-[#9cabba] text-xs sm:text-sm">
                     Projects Completed

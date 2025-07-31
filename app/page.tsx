@@ -1,8 +1,6 @@
-import Header from "@/components/header"
 import Hero from "@/components/hero"
 import FeaturedProjects from "@/components/featured-projects"
 import Contact from "@/components/contact"
-import Footer from "@/components/footer"
 import SkillsServer from "@/components/SkillsServer"
 
 export default function Home() {
@@ -12,7 +10,6 @@ export default function Home() {
       style={{ fontFamily: 'Inter, "Noto Sans", sans-serif' }}
     >
       <div className="layout-container flex h-full grow flex-col">
-        <Header />
         <div className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 flex flex-1 justify-center py-3 sm:py-4 md:py-5">
           <div className="layout-content-container flex flex-col max-w-[1200px] flex-1">
             <Hero />
@@ -21,7 +18,6 @@ export default function Home() {
             <Contact />
           </div>
         </div>
-        <Footer />
       </div>
     </div>
   )

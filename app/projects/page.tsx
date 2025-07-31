@@ -1,5 +1,3 @@
-import Header from "@/components/header";
-import Footer from "@/components/footer";
 import ProjectsGrid from "@/components/projects-grid";
 import type { Metadata } from "next";
 import { Project } from "@/lib/types";
@@ -43,11 +41,9 @@ export default async function ProjectsPage() {
       style={{ fontFamily: 'Inter, "Noto Sans", sans-serif' }}
     >
       <div className="layout-container flex h-full grow flex-col">
-        <Header />
         <main className="flex-1">
           <ProjectsGrid projects={projects} />
         </main>
-        <Footer />
       </div>
     </div>
   );

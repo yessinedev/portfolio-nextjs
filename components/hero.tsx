@@ -1,11 +1,10 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-// import { Badge } from "@/components/ui/badge"
-import { useEffect, useState } from "react"
-import { ChevronRight, Code2, Sparkles } from "lucide-react"
-import Link from "next/link"
-
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge"
+import { useEffect, useState } from "react";
+import { ChevronRight, Code2, Sparkles } from "lucide-react";
+import Link from "next/link";
 
 const codeSnippets = [
   {
@@ -31,37 +30,36 @@ const codeSnippets = [
   collaboration: boolean;
 }`,
   },
-]
+];
+
+const techStack = ["Next.js", "Reactjs", "Tanstack Query", "TailwindCss", "Nestjs", "Express.js", "Typescript", "Javascript", "Java", "Spring Boot", "PostgreSQL", "Prisma"]
 
 export default function Hero() {
-  const [currentSnippet, setCurrentSnippet] = useState(0)
-  const [displayedText, setDisplayedText] = useState("")
-  const [isTyping, setIsTyping] = useState(true)
-
-  
-
+  const [currentSnippet, setCurrentSnippet] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isTyping, setIsTyping] = useState(true);
 
   // Typewriter effect for the main headline
-  const headline = "Hi, I'm Yessine Agrebi"
+  const headline = "Hi, I'm Yessine Agrebi";
 
   useEffect(() => {
     if (isTyping && displayedText.length < headline.length) {
       const timeout = setTimeout(() => {
-        setDisplayedText(headline.slice(0, displayedText.length + 1))
-      }, 100)
-      return () => clearTimeout(timeout)
+        setDisplayedText(headline.slice(0, displayedText.length + 1));
+      }, 100);
+      return () => clearTimeout(timeout);
     } else if (displayedText.length === headline.length) {
-      setIsTyping(false)
+      setIsTyping(false);
     }
-  }, [displayedText, isTyping, headline])
+  }, [displayedText, isTyping, headline]);
 
   // Cycle through code snippets
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSnippet((prev) => (prev + 1) % codeSnippets.length)
-    }, 4000)
-    return () => clearInterval(interval)
-  }, [])
+      setCurrentSnippet((prev) => (prev + 1) % codeSnippets.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section id="about" className="relative overflow-hidden">
@@ -97,11 +95,11 @@ export default function Hero() {
 
               {/* Description */}
               <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-lg">
-                Passionate about creating innovative and user-friendly applications. I specialize in building scalable
-                solutions that make a difference.
+                Passionate about creating innovative and user-friendly
+                applications. I specialize in building scalable solutions that
+                make a difference.
               </p>
 
-              {/* Tech Stack Badges
               <div className="space-y-3">
                 <p className="text-sm text-gray-400 font-medium">Technologies I work with:</p>
                 <div className="flex flex-wrap gap-2">
@@ -116,7 +114,7 @@ export default function Hero() {
                     </Badge>
                   ))}
                 </div>
-              </div> */}
+              </div>
             </div>
 
             {/* CTA Buttons */}
@@ -154,7 +152,9 @@ export default function Hero() {
                     <div className="w-3 h-3 rounded-full bg-[#27ca3f]"></div>
                   </div>
                   <div className="flex-1 text-center">
-                    <span className="text-sm text-gray-400 font-mono">{codeSnippets[currentSnippet].language}</span>
+                    <span className="text-sm text-gray-400 font-mono">
+                      {codeSnippets[currentSnippet].language}
+                    </span>
                   </div>
                 </div>
 
@@ -162,7 +162,9 @@ export default function Hero() {
                 <div className="p-4 sm:p-6 h-32 sm:h-40 lg:h-48 flex items-center">
                   <div className="w-full overflow-hidden">
                     <pre className="text-xs sm:text-sm font-mono text-gray-300 leading-relaxed whitespace-pre-wrap">
-                      <code className="language-javascript">{codeSnippets[currentSnippet].code}</code>
+                      <code className="language-javascript">
+                        {codeSnippets[currentSnippet].code}
+                      </code>
                     </pre>
                   </div>
                 </div>
@@ -173,7 +175,9 @@ export default function Hero() {
                     <div
                       key={index}
                       className={`h-1 flex-1 rounded-full transition-colors duration-300 ${
-                        index === currentSnippet ? "bg-[#3d98f4]" : "bg-[#30363d]"
+                        index === currentSnippet
+                          ? "bg-[#3d98f4]"
+                          : "bg-[#30363d]"
                       }`}
                     />
                   ))}
@@ -183,14 +187,18 @@ export default function Hero() {
               {/* Floating Stats - Responsive positioning */}
               <div className="absolute -bottom-3 -left-1 sm:-bottom-4 sm:-left-4 bg-[#1b2127] border border-[#3b4754] rounded-lg p-3 sm:p-4 shadow-lg">
                 <div className="text-center">
-                  <div className="text-xl sm:text-2xl font-bold text-[#3d98f4]">50+</div>
+                  <div className="text-xl sm:text-2xl font-bold text-[#3d98f4]">
+                    25+
+                  </div>
                   <div className="text-xs text-gray-400">Projects Built</div>
                 </div>
               </div>
 
               <div className="absolute -top-3 -right-1 sm:-top-4 sm:-right-4 bg-[#1b2127] border border-[#3b4754] rounded-lg p-3 sm:p-4 shadow-lg">
                 <div className="text-center">
-                  <div className="text-xl sm:text-2xl font-bold text-[#10b981]">3+</div>
+                  <div className="text-xl sm:text-2xl font-bold text-[#10b981]">
+                    3+
+                  </div>
                   <div className="text-xs text-gray-400">Years Experience</div>
                 </div>
               </div>
@@ -199,5 +207,5 @@ export default function Hero() {
         </div>
       </div>
     </section>
-  )
+  );
 }

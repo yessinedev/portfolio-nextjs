@@ -1,12 +1,9 @@
-import Header from "@/components/header";
-import Footer from "@/components/footer";
 import ProjectDetails from "@/components/project-details";
 import { notFound } from "next/navigation";
 import { groq } from "next-sanity";
 import { client } from "@/sanity/lib/client";
 import { Project } from "@/lib/types";
 
-// Enhanced project data with more comprehensive information
 
 const query = groq`
   *[_type == "project" && _id == $id][0]{
@@ -46,13 +43,11 @@ export default async function ProjectPage({
       style={{ fontFamily: 'Inter, "Noto Sans", sans-serif' }}
     >
       <div className="layout-container flex h-full grow flex-col">
-        <Header />
         <div className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 flex flex-1 justify-center py-3 sm:py-4 md:py-5">
           <div className="layout-content-container flex flex-col max-w-[1200px] flex-1">
             <ProjectDetails project={project} />
           </div>
         </div>
-        <Footer />
       </div>
     </div>
   );

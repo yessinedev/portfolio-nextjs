@@ -1,4 +1,3 @@
-// /lib/queries.ts
 
 export const getSkillCategoriesWithSkills = `
 *[_type == "skillCategory"]{
@@ -22,5 +21,6 @@ export const getSkillCategoriesWithSkills = `
   }
 }
 `;
+
 
 
