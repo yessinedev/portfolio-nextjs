@@ -31,6 +31,7 @@ export const metadata: Metadata = {
   title: "Projects - Yessine Agrebi | Full-Stack Developer",
   description:
     "Explore my complete portfolio of web applications, mobile apps, and software solutions. Built with modern technologies and best practices.",
+    keywords: ["fullstack development", "fullstack projects", "nextjs projects", "react projects", "web development projects", "projets web"]
 };
 
 export default async function ProjectsPage() {

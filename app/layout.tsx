@@ -14,9 +14,24 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Yessine Agrebi - Software Developer Portfolio",
+  title: "Yessine Agrebi's Portfolio",
   description:
-    "A passionate software developer with a focus on creating innovative and user-friendly applications. Specializing in full-stack development with Nextjs, Nestjs, and Prisma.",
+    "A passionate fullstack developer with a focus on creating innovative and user-friendly applications. Specializing in full-stack development with Nextjs, Nestjs, and PostgreSQL.",
+  keywords: [
+    "fullstack developer",
+    "software developer",
+    "web developer",
+    "software enginner",
+    "full stack developer",
+    "React develoer",
+    "fullstack developer",
+    "frontend developer",
+    "backend developer",
+    "developpeur web",
+    "developpeur web fullstack",
+    "Freelancer web developer",
+    "freelancer fullstack developer",
+  ],
 };
 
 export default function RootLayout({
