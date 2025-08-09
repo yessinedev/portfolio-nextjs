@@ -38,10 +38,11 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
+  const {slug} = await params;
   const project: Project | null = await client.fetch(query, {
-    id: params.slug,
+    id: slug,
   });
 
   if (!project) return {};

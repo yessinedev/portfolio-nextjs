@@ -127,7 +127,7 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
                 <div className="p-6 space-y-4">
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
-                      <h3 className="text-white text-lg font-bold group-hover:text-[#3d98f4] transition-colors duration-300">
+                      <h3 className="text-white text-lg font-bold group-hover:text-[#71b4f794] transition-colors duration-300">
                         {project.title}
                       </h3>
                     </div>
