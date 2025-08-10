@@ -123,20 +123,27 @@ export default async function FeaturedProjects() {
                   </Button>
 
                   <div className="flex items-center gap-2">
-                    <Button
+                    {project.links?.map((l) => {
+                      return l.type === "demo" ? (
+                        <Button
                       size="sm"
                       variant="ghost"
                       className="text-[#9cabba] hover:text-white hover:bg-[#283039] p-2"
                     >
                       <ExternalLink className="w-4 h-4" />
                     </Button>
-                    <Button
+                      ) : l.type === "github" ? (
+                        <Button
                       size="sm"
                       variant="ghost"
                       className="text-[#9cabba] hover:text-white hover:bg-[#283039] p-2"
                     >
                       <Github className="w-4 h-4" />
                     </Button>
+                      ) : null
+                    })}
+                    
+                    
                   </div>
                 </div>
               </div>
