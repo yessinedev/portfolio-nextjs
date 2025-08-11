@@ -21,6 +21,7 @@ import {
   Globe,
 } from "lucide-react";
 import { toast } from "sonner";
+import Link from "next/link";
 
 const contactInfo = [
   {
@@ -344,35 +345,35 @@ export default function Contact() {
               variant="outline"
               className="bg-[#1b2127] rounded-lg border-[#3b4754] text-white hover:bg-[#283039] hover:border-[#3d98f4]"
             >
-              <a
+              <Link
                 href="https://linkedin.com/in/yessine-agrebi"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 LinkedIn
-              </a>
+              </Link>
             </Button>
             <Button
               asChild
               variant="outline"
               className="bg-[#1b2127] rounded-lg border-[#3b4754] text-white hover:bg-[#283039] hover:border-[#3d98f4]"
             >
-              <a
+              <Link
                 href="https://github.com/yessine-agrebi"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 GitHub
-              </a>
+              </Link>
             </Button>
             <Button
               asChild
               variant="outline"
               className="bg-[#1b2127] rounded-lg border-[#3b4754] text-white hover:bg-[#283039] hover:border-[#3d98f4]"
             >
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+              <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer">
                 Resume
-              </a>
+              </Link>
             </Button>
           </div>
         </div>

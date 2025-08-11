@@ -101,7 +101,7 @@ export default function ProjectsManager({ initialProjects }: ProjectsManagerProp
           >
             {/* Project Image */}
             <div className="relative h-48 overflow-hidden">
-              <Image src={project.image || "/placeholder.svg"} alt={project.title} fill className="object-cover" />
+              <Image src={project.image} alt={project.title} priority={true} fill className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1b2127] via-transparent to-transparent opacity-60" />
 
               {/* Badges */}

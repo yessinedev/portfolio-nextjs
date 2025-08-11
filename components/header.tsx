@@ -168,10 +168,10 @@ export default function Header() {
                 variant="outline"
                 className="bg-[#283039] border-[#3b4754] text-white hover:bg-[#3a4651] hover:border-[#3d98f4] transition-all duration-300"
               >
-                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 rounded-lg">
+                <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 rounded-lg">
                   <Download className="w-4 h-4" />
                   Resume
-                </a>
+                </Link>
               </Button>
 
               <div className="relative group">
@@ -312,10 +312,10 @@ export default function Header() {
                 className="w-full bg-gradient-to-r from-[#3d98f4] to-[#2563eb] hover:from-[#2d7bd4] hover:to-[#1d4ed8] text-white font-medium"
                 onClick={handleLinkClick}
               >
-                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                   <Download className="w-4 h-4" />
                   Download Resume
-                </a>
+                </Link>
               </Button>
 
               {/* Profile Section */}
@@ -351,9 +351,9 @@ export default function Header() {
                   className="bg-[#283039] border-[#3b4754] text-white hover:bg-[#3a4651] hover:border-[#3d98f4]"
                   onClick={handleLinkClick}
                 >
-                  <a href="https://linkedin.com/in/yessine-agrebi" target="_blank" rel="noopener noreferrer">
+                  <Link href="https://linkedin.com/in/yessine-agrebi" target="_blank" rel="noopener noreferrer">
                     LinkedIn
-                  </a>
+                  </Link>
                 </Button>
                 <Button
                   asChild
@@ -362,9 +362,9 @@ export default function Header() {
                   className="bg-[#283039] border-[#3b4754] text-white hover:bg-[#3a4651] hover:border-[#3d98f4]"
                   onClick={handleLinkClick}
                 >
-                  <a href="https://github.com/yessine-agrebi" target="_blank" rel="noopener noreferrer">
+                  <Link href="https://github.com/yessine-agrebi" target="_blank" rel="noopener noreferrer">
                     GitHub
-                  </a>
+                  </Link>
                 </Button>
               </div>
             </div>

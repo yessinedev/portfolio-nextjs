@@ -7,7 +7,7 @@ import { client } from "@/sanity/lib/client";
 import { Project } from "@/lib/types";
 
 export async function getFeaturedProjects(): Promise<Project[]> {
-  const res =  await client.fetch(
+  const res = await client.fetch(
     `*[_type == "project" && featured == true]{
       _id,
       title,
@@ -65,8 +65,9 @@ export default async function FeaturedProjects() {
               {/* Project Image */}
               <div className="relative overflow-hidden">
                 <Image
-                  src={project.image ?? "/placeholder.svg"}
+                  src={project.image}
                   alt={project.title}
+                  priority={true}
                   width={500}
                   height={300}
                   className="w-full h-56 sm:h-64 object-cover transition-transform duration-700 group-hover:scale-110"
@@ -125,25 +126,27 @@ export default async function FeaturedProjects() {
                   <div className="flex items-center gap-2">
                     {project.links?.map((l) => {
                       return l.type === "demo" ? (
-                        <Button
-                      size="sm"
-                      variant="ghost"
-                      className="text-[#9cabba] hover:text-white hover:bg-[#283039] p-2"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                    </Button>
+                        <Button key={l.url} asChild>
+                          <Link
+                            href={l.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <ExternalLink className="w-4 h-4" />
+                          </Link>
+                        </Button>
                       ) : l.type === "github" ? (
-                        <Button
-                      size="sm"
-                      variant="ghost"
-                      className="text-[#9cabba] hover:text-white hover:bg-[#283039] p-2"
-                    >
-                      <Github className="w-4 h-4" />
-                    </Button>
-                      ) : null
+                        <Button key={l.url} asChild>
+                          <Link
+                            href={l.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <Github className="w-4 h-4" />
+                          </Link>
+                        </Button>
+                      ) : null;
                     })}
-                    
-                    
                   </div>
                 </div>
               </div>

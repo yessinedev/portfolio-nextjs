@@ -15,8 +15,8 @@ import {
 } from "lucide-react";
 import { Project } from "@/lib/types";
 
-
 export default function ProjectsGrid({ projects }: { projects: Project[] }) {
+  console.log(projects[0].slug.current)
   const [searchTerm, setSearchTerm] = useState("");
 
   const filteredProjects = useMemo(() => {
@@ -34,10 +34,10 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
   }, [searchTerm, projects]);
 
   return (
-    <div className="min-h-screen py-16">
+    <div className="min-h-screen py-8">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
-        <div className="space-y-8 mb-12">
+        <div className="space-y-4 mb-12">
           {/* Back Navigation */}
           <Link href="/#projects">
             <Button
@@ -54,7 +54,7 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
             <div className="inline-flex items-center gap-2 bg-[#1b2127] border border-[#3b4754] rounded-full px-4 py-2">
               <div className="w-2 h-2 bg-[#10b981] rounded-full animate-pulse"></div>
               <span className="text-[#9cabba] text-sm font-medium">
-                Complete Portfolio
+                Available for work
               </span>
             </div>
             <h1 className="text-white text-4xl lg:text-5xl font-bold leading-tight">
@@ -97,14 +97,17 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
             {filteredProjects.map((project, index) => (
               <div
                 key={project._id}
-                className="group relative bg-gradient-to-br from-[#1b2127] to-[#151a1f] rounded-2xl overflow-hidden border border-[#3b4754] hover:border-[#3d98f4]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[#3d98f4]/10 hover:-translate-y-2"
+                className="group relative bg-gradient-to-br from-[#1b2127] to-[#151a1f] rounded-2xl overflow-hidden border border-[#3b4754]
+                hover:bg-gradient-to-b hover:from-indigo-500/20 hover:to-purple-500/20 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2]
+"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Project Image */}
                 <div className="relative overflow-hidden">
                   <Image
-                    src={project.image?? "/placeholder.svg"}
+                    src={project.image ?? "/placeholder.svg"}
                     alt={project.title}
+                    priority={true}
                     width={500}
                     height={300}
                     className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-110"
@@ -165,7 +168,7 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
                       className="bg-[#3d98f4] hover:bg-[#2d7bd4] text-white font-medium px-4 py-2 rounded-lg transition-all duration-300"
                     >
                       <Link
-                        href={`/projects/${project._id}`}
+                        href={`/projects/${project?.slug?.current}`}
                         className="flex items-center gap-2"
                       >
                         View Details
@@ -209,8 +212,8 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
                   No projects found
                 </h3>
                 <p className="text-[#9cabba] max-w-md mx-auto">
-                  Try adjusting your search terms or filters to find what you&apos;re
-                  looking for.
+                  Try adjusting your search terms or filters to find what
+                  you&apos;re looking for.
                 </p>
                 <Button
                   onClick={() => {

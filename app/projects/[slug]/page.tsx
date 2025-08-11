@@ -5,7 +5,7 @@ import { client } from "@/sanity/lib/client";
 import { Project } from "@/lib/types";
 
 const query = groq`
-  *[_type == "project" && _id == $id][0]{
+  *[_type == "project" && slug.current == $slug][0]{
     _id,
     title,
     overview,
@@ -42,7 +42,7 @@ export async function generateMetadata({
 }) {
   const {slug} = await params;
   const project: Project | null = await client.fetch(query, {
-    id: slug,
+    slug: slug,
   });
 
   if (!project) return {};
@@ -73,7 +73,7 @@ export default async function ProjectPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const project: Project | null = await client.fetch(query, { id: slug });
+  const project: Project | null = await client.fetch(query, { slug });
 
   if (!project) {
     return notFound();

@@ -132,7 +132,7 @@ export default function Hero() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-[#3b4754] text-white hover:bg-[#1b2127] font-semibold px-6 sm:px-8 py-3 rounded-lg transition-all duration-300"
+                className="border-[#3b4754] text-black bg-slate-100 hover:bg-[#1b2127] font-semibold px-6 sm:px-8 py-3 rounded-lg transition-all duration-300"
               >
                 Get In Touch
               </Button>

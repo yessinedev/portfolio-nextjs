@@ -38,7 +38,7 @@ const getLinkColor = (type: string) => {
 
 export default function ProjectDetails({ project }: ProjectDetailsProps) {
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       {/* Back Navigation */}
       <div className="px-4">
         <Link href="/#projects">
@@ -63,11 +63,12 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
 
       {/* Hero Image */}
       <div className="@container">
-        <div className="@[480px]:px-4 @[480px]:py-3">
-          <div className="w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden bg-[#121417] @[480px]:rounded-lg min-h-80">
+        <div className="@[480px]:px-4 @[480px]:py-1">
+          <div className="w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden bg-[#121417] @[480px]:rounded-lg lg:min-h-80">
             <Image
-              src={project.image|| "/placeholder.svg"}
+              src={project.image}
               alt={project.title}
+              priority={true}
               width={800}
               height={400}
               className="w-full h-full object-cover rounded-lg"
@@ -144,7 +145,7 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                     link.type
                   )} text-white transition-colors`}
                 >
-                  <a
+                  <Link
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -158,7 +159,7 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                         ? "GitHub"
                         : "Read More"}
                     </span>
-                  </a>
+                  </Link>
                 </Button>
               </div>
             </div>

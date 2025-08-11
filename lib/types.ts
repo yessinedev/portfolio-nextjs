@@ -22,6 +22,11 @@ export interface SkillCategory {
 export interface Project {
   _id: string;
   title: string;
+  slug: {
+    current: string;
+    _type: string;
+  }
+
   subtitle?: string;
   image: string;
   overview?: string;
@@ -34,7 +39,7 @@ export interface Project {
 export interface ProjectLink {
   name: string;
   url: string;
-  type: "demo" | "github" | "case-study"
+  type: "demo" | "github" | "case-study";
 }
 
 export interface Skill {
@@ -42,4 +47,3 @@ export interface Skill {
   name: string;
   icon: string; // assuming the skill has an icon or similar field
 }
-
