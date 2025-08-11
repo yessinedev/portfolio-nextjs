@@ -9,7 +9,7 @@ import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface SkillPageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
@@ -18,7 +18,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: SkillPageProps): Promise<Metadata> {
-  const {slug} = params;
+  const {slug} = await params;
   const skill = await client.fetch(
     groq`*[_type == "skill" && slug.current == $slug][0]`,
     { slug: slug }
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: SkillPageProps): Promise<Meta
 }
 
 export default async function SkillPage({ params }: SkillPageProps) {
-  const {slug} = params;
+  const {slug} = await params;
   const skill: Skill = await client.fetch(
     groq`*[_type == "skill" && slug.current == $slug]{
       _id,
