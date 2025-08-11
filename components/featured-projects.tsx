@@ -19,7 +19,8 @@ export async function getFeaturedProjects(): Promise<Project[]> {
       "skills": skills[]->{
         _id,
         name,
-        icon
+        icon,
+        slug,
       },
       "links": links[]{
         name,
@@ -94,13 +95,14 @@ export default async function FeaturedProjects() {
                 {/* Technologies */}
                 <div className="flex flex-wrap gap-2">
                   {project.skills.slice(0, 3).map((tech) => (
-                    <Badge
-                      key={tech._id}
-                      variant="outline"
-                      className="bg-[#283039] border-[#3b4754] text-[#9cabba] text-xs hover:border-[#3d98f4] transition-colors"
-                    >
-                      {tech.name}
-                    </Badge>
+                    <Link key={tech._id} href={`/skills/${tech.slug.current}`}>
+                      <Badge
+                        variant="outline"
+                        className="bg-[#283039] border-[#3b4754] text-[#9cabba] text-xs hover:border-[#3d98f4] transition-colors"
+                      >
+                        {tech.name}
+                      </Badge>
+                    </Link>
                   ))}
                   {project.skills.length > 3 && (
                     <Badge

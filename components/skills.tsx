@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Zap, Brain, Users, Target } from "lucide-react";
 import { SkillCategory } from "@/lib/types";
 import IconRenderer from "./IconRenderer";
+import Link from "next/link";
 
 const softSkills = [
   { name: "Problem Solving", icon: Brain, level: 95 },
@@ -21,10 +22,7 @@ export default function Skills({
   skillCategories: SkillCategory[];
 }) {
   const [activeCategory, setActiveCategory] = useState(0);
-  
 
-
-  
   return (
     <section
       id="skills"
@@ -94,39 +92,41 @@ export default function Skills({
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
             {skillCategories[activeCategory].skills.map((skill, index) => {
               return (
-                <Card
-                  key={skill.name}
-                  className="bg-gradient-to-br from-[#1b2127] to-[#151a1f] border-[#3b4754] hover:border-[#3d98f4]/50 transition-all duration-500 hover:shadow-lg hover:shadow-[#3d98f4]/10 group"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <CardContent className="p-3 sm:p-4 space-y-3">
-                    {/* Skill Header */}
-                    <div className="flex items-center gap-2 sm:gap-3">
-                      <div
-                        className={`p-2 rounded-lg bg-gradient-to-r ${skillCategories[activeCategory].gradient} group-hover:scale-110 transition-transform duration-300`}
-                      >
-                        <IconRenderer iconName={skill.icon} />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h4 className="text-white font-semibold truncate text-sm sm:text-base">
-                          {skill.name}
-                        </h4>
-                        <div className="flex items-center gap-1 sm:gap-2 text-xs text-[#9cabba]">
-                          <span>{skill.years} years</span>
-                          <span>•</span>
-                          <span>{skill.projects && skill.projects.length} projects</span>
+                <Link key={skill.slug.current} href={`/skills/${skill.slug.current}`}>
+                  <Card
+                    className="bg-gradient-to-br from-[#1b2127] to-[#151a1f] border-[#3b4754] hover:border-[#3d98f4]/50 transition-all duration-500 hover:shadow-lg hover:shadow-[#3d98f4]/10 group"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <CardContent className="p-3 sm:p-4 space-y-3">
+                      {/* Skill Header */}
+                      <div className="flex items-center gap-2 sm:gap-3">
+                        <div
+                          className={`p-2 rounded-lg bg-gradient-to-r ${skillCategories[activeCategory].gradient} group-hover:scale-110 transition-transform duration-300`}
+                        >
+                          <IconRenderer iconName={skill.icon} />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <h4 className="text-white font-semibold truncate text-sm sm:text-base">
+                            {skill.name}
+                          </h4>
+                          <div className="flex items-center gap-1 sm:gap-2 text-xs text-[#9cabba]">
+                            <span>{skill.years} years</span>
+                            <span>•</span>
+                            <span>
+                              {skill.projects && skill.projects.length} projects
+                            </span>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </Link>
               );
             })}
           </div>
         </div>
 
         {/* Soft Skills Section */}
-        
 
         {/* Skills Summary */}
         <div className="mt-12 sm:mt-16">

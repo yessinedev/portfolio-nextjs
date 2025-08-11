@@ -14,7 +14,8 @@ const query = groq`
     "skills": skills[]->{
       _id,
       name,
-      icon
+      icon,
+      slug
     },
     role,
     datePublished,

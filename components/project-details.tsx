@@ -102,13 +102,14 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
         </h2>
         <div className="flex flex-wrap gap-1">
           {project.skills.map((tech) => (
-            <Badge
-              key={tech._id}
-              variant="outline"
-              className="bg-[#283039] border-[#3b4754] text-[#9cabba] text-xs hover:border-[#3d98f4] transition-colors"
-            >
-              {tech.name}
-            </Badge>
+            <Link key={tech._id} href={`/skills/${tech.slug.current}`}>
+              <Badge
+                variant="outline"
+                className="bg-[#283039] border-[#3b4754] text-[#9cabba] text-xs hover:border-[#3d98f4] transition-colors"
+              >
+                {tech.name}
+              </Badge>
+            </Link>
           ))}
           {/* {project.skills.length > 4 && (
             <Badge

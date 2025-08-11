@@ -12,6 +12,7 @@ export const getSkillCategoriesWithSkills = `
     _id,
     name,
     description,
+    slug,
     icon,
     years,
     "projects": *[_type == "project" && references(^._id)]{

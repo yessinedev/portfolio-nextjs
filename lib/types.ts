@@ -47,5 +47,9 @@ export interface ProjectLink {
 export interface Skill {
   _id: string;
   name: string;
+  slug: {
+    current: string;
+    _type: string;
+  };
   icon: string; // assuming the skill has an icon or similar field
 }

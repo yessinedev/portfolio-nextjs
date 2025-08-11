@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
-import Link from "next/link";
 import { useState, useMemo } from "react";
+import Link from "next/link";
 import {
   ArrowRight,
   ExternalLink,
@@ -142,13 +142,14 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
                   {/* Technologies */}
                   <div className="flex flex-wrap gap-1">
                     {project.skills.slice(0, 4).map((tech) => (
-                      <Badge
-                        key={tech._id}
-                        variant="outline"
-                        className="bg-[#283039] border-[#3b4754] text-[#9cabba] text-xs hover:border-[#3d98f4] transition-colors"
-                      >
-                        {tech.name}
-                      </Badge>
+                      <Link key={tech._id} href={`/skills/${tech.slug.current}`}>
+                        <Badge
+                          variant="outline"
+                          className="bg-[#283039] border-[#3b4754] text-[#9cabba] text-xs hover:border-[#3d98f4] transition-colors"
+                        >
+                          {tech.name}
+                        </Badge>
+                      </Link>
                     ))}
                     {project.skills.length > 4 && (
                       <Badge

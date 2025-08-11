@@ -17,7 +17,8 @@ export async function fetchProjects(): Promise<Project[]> {
       skills[]->{
         _id,
         name,
-        icon
+        icon,
+        slug
       },
       role,
       datePublished,

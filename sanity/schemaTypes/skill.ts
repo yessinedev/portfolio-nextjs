@@ -7,6 +7,7 @@ export const skill = defineType({
   fields: [
     defineField({ name: 'name', type: 'string', validation: (rule) => rule.required() }),
     defineField({ name: 'description', type: 'text' }),
+    defineField({ name: 'slug', type: 'slug', options: { source: 'name' } }),
     defineField({ name: 'icon', type: 'string' }),
     defineField({ name: 'years', type: 'number' }),
     defineField({
