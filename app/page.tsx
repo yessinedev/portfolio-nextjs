@@ -1,7 +1,39 @@
-import Hero from "@/components/hero"
-import FeaturedProjects from "@/components/featured-projects"
-import Contact from "@/components/contact"
-import SkillsServer from "@/components/SkillsServer"
+import Hero from "@/components/hero";
+import FeaturedProjects from "@/components/featured-projects";
+import Contact from "@/components/contact";
+import SkillsServer from "@/components/SkillsServer";
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "Yessine Agrebi | Portfolio",
+    description:
+      "A passionate fullstack developer with a focus on creating innovative and user-friendly applications. Specializing in full-stack development with Nextjs, Nestjs, and PostgreSQL.",
+    openGraph: {
+      title: "Yessine Agrebi | Portfolio",
+      description:
+        "A passionate fullstack developer with a focus on creating innovative and user-friendly applications. Specializing in full-stack development with Nextjs, Nestjs, and PostgreSQL.", 
+      url: process.env.DOMAIN,
+      siteName: "Yessine Agrebi | Portfolio",
+      images: [
+        {
+          url: `${process.env.DOMAIN}/og-image.png`,
+          width: 1200,
+          height: 630,
+        },
+      ],
+      locale: "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Yessine Agrebi | Portfolio",
+      description:
+        "A passionate fullstack developer with a focus on creating innovative and user-friendly applications. Specializing in full-stack development with Nextjs, Nestjs, and PostgreSQL.",
+      images: [`${process.env.DOMAIN}/og-image.png`],
+    },
+  };
+}
 
 export default function Home() {
   return (
@@ -20,5 +52,5 @@ export default function Home() {
         </div>
       </div>
     </div>
-  )
+  );
 }

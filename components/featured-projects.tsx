@@ -66,7 +66,7 @@ export default async function FeaturedProjects() {
               <div className="relative overflow-hidden">
                 <Image
                   src={project.image}
-                  alt={project.title}
+                  alt={`${project.title} - ${project.overview}`}
                   priority={true}
                   width={500}
                   height={300}

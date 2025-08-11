@@ -178,7 +178,7 @@ export default function Header() {
                 <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-[#3b4754] group-hover:border-[#3d98f4] transition-colors duration-300">
                   <Image
                     src="/profile.jpg"
-                    alt="Profile"
+                    alt="Yessine Agrebi's profile picture"
                     width={40}
                     height={40}
                     className="w-full h-full object-cover"

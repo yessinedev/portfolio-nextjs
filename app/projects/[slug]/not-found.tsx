@@ -1,4 +1,10 @@
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Project Not Found - Yessine Agrebi",
+  description: "The project you are looking for does not exist or may have been removed.",
+};
 
 export default function ProjectNotFound() {
   return (

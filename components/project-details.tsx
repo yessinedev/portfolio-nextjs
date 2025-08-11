@@ -67,7 +67,7 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
           <div className="w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden bg-[#121417] @[480px]:rounded-lg lg:min-h-80">
             <Image
               src={project.image}
-              alt={project.title}
+              alt={`${project.title} - ${project.overview}`}
               priority={true}
               width={800}
               height={400}

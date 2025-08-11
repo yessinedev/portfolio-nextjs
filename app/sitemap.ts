@@ -11,7 +11,7 @@ export default async function sitemap() {
     { url: `${process.env.DOMAIN}`, lastModified: new Date() },
     { url: `${process.env.DOMAIN}/#about`, lastModified: new Date() },
     ...projects.map((p: Project) => ({
-      url: `${process.env.DOMAIN}/projects/${p._id}`,
+      url: `${process.env.DOMAIN}/projects/${p.slug.current}`,
       lastModified: new Date(),
     })),
   ];

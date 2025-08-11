@@ -106,7 +106,7 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
                 <div className="relative overflow-hidden">
                   <Image
                     src={project.image ?? "/placeholder.svg"}
-                    alt={project.title}
+                    alt={`${project.title} - ${project.subtitle}`}
                     priority={true}
                     width={500}
                     height={300}
