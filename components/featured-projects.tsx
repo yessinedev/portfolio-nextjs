@@ -13,6 +13,7 @@ export async function getFeaturedProjects(): Promise<Project[]> {
       title,
       "image": heroImage.asset->url,
       featured,
+      slug,
       role,
       overview,
       "skills": skills[]->{
@@ -24,9 +25,12 @@ export async function getFeaturedProjects(): Promise<Project[]> {
         name,
         url,
         type
-      }
+      },
+      datePublished,
+      dateModified
     }`
   );
+  console.log("res: ", res)
   return res;
 }
 
@@ -115,7 +119,7 @@ export default async function FeaturedProjects() {
                     className="bg-[#3d98f4] hover:bg-[#2d7bd4] text-white font-medium px-6 py-2 rounded-lg transition-all duration-300 transform hover:scale-105"
                   >
                     <Link
-                      href={`/projects/${project._id}`}
+                      href={`/projects/${project.slug?.current}`}
                       className="flex items-center gap-2"
                     >
                       View Details

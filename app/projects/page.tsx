@@ -20,6 +20,8 @@ export async function fetchProjects(): Promise<Project[]> {
         icon
       },
       role,
+      datePublished,
+      dateModified,
       links
     }
   `;

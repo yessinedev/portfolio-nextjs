@@ -17,6 +17,8 @@ const query = groq`
       icon
     },
     role,
+    datePublished,
+    dateModified,
     "links": links[]{
       name,
       url,
@@ -90,6 +92,8 @@ export default async function ProjectPage({
     },
     image: project.image,
     url: `https://yourdomain.com/projects/${slug}`,
+    datePublished: project.datePublished,
+    dateModified: project.dateModified || project.datePublished,
   };
 
   return (

@@ -42,7 +42,7 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
       {/* Back Navigation */}
       <div className="px-4">
         <Link href="/#projects">
-          <Button variant="ghost" className="text-white hover:bg-[#1b2127] p-2">
+          <Button variant="ghost" className="text-white hover:bg-[#f3f7fa] p-2">
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Projects
           </Button>
@@ -58,6 +58,14 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
           <p className="text-[#a1abb5] text-sm font-normal leading-normal max-w-2xl">
             {project.subtitle}
           </p>
+          <div className="flex gap-4 text-[#9cabba] text-xs">
+            {project.datePublished && (
+              <span>Published: {new Date(project.datePublished).toLocaleDateString()}</span>
+            )}
+            {project.dateModified && project.dateModified !== project.datePublished && (
+              <span>Last Updated: {new Date(project.dateModified).toLocaleDateString()}</span>
+            )}
+          </div>
         </div>
       </div>
 

@@ -32,6 +32,8 @@ export interface Project {
   overview?: string;
   role?: string;
   featured: boolean;
+  datePublished?: string;
+  dateModified?: string;
   skills: Skill[]; // Populated references
   links: ProjectLink[];
 }
