@@ -1,208 +1,201 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge"
-import { useEffect, useState } from "react";
-import { ChevronRight, Code2, Sparkles } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { HeroSettings, Metric } from "@/lib/types";
+import { ArrowRight, Calendar } from "lucide-react";
 import Link from "next/link";
 
-const codeSnippets = [
-  {
-    language: "JavaScript",
-    code: `const developer = {
-  name: "Yessine Agrebi",
-  passion: "Building amazing apps",
-  skills: ["React", "Nextjs", "Tailwind Css"]
-};`,
-  },
-  {
-    language: "Java",
-    code: `public function createInnovation(){
-    ideas = generateSolutions()
-    return buildWithPassion(ideas)
-  }`,
-  },
-  {
-    language: "TypeScript",
-    code: `interface Developer {
-  creativity: number;
-  problemSolving: "expert";
-  collaboration: boolean;
-}`,
-  },
+const fallbackTechStack = [
+  "Next.js",
+  "React",
+  "TypeScript",
+  "Tailwind CSS",
+  "NestJS",
+  "PostgreSQL",
+  "Prisma",
+  "Spring Boot",
+  "Docker",
+  "Supabase",
 ];
 
-const techStack = ["Next.js", "Reactjs", "Tanstack Query", "TailwindCss", "Nestjs", "Express.js", "Typescript", "Javascript", "Java", "Spring Boot", "PostgreSQL", "Prisma"]
+const defaultStats = [
+  { value: "15+", label: "Projects Delivered" },
+  { value: "10+", label: "Happy Clients" },
+  { value: "4+", label: "Years Experience" },
+  { value: "100%", label: "On-Time Delivery" },
+];
 
-export default function Hero() {
-  const [currentSnippet, setCurrentSnippet] = useState(0);
-  const [displayedText, setDisplayedText] = useState("");
-  const [isTyping, setIsTyping] = useState(true);
+export default function Hero({ settings }: { settings?: HeroSettings }) {
+  const techStack = settings?.technologies?.length
+    ? settings.technologies
+    : fallbackTechStack;
 
-  // Typewriter effect for the main headline
-  const headline = "Hi, I'm Yessine Agrebi";
+  const statsFromCms: Metric[] = (settings?.stats?.filter(Boolean) ??
+    []) as Metric[];
+  const stats: Metric[] =
+    statsFromCms.length >= 4
+      ? statsFromCms.slice(0, 4)
+      : statsFromCms.length > 0
+        ? [
+            ...statsFromCms,
+            ...defaultStats.filter(
+              (d) =>
+                !statsFromCms.some(
+                  (s) => s.label === d.label && s.value === d.value
+                )
+            ),
+          ].slice(0, 4)
+        : defaultStats;
 
-  useEffect(() => {
-    if (isTyping && displayedText.length < headline.length) {
-      const timeout = setTimeout(() => {
-        setDisplayedText(headline.slice(0, displayedText.length + 1));
-      }, 100);
-      return () => clearTimeout(timeout);
-    } else if (displayedText.length === headline.length) {
-      setIsTyping(false);
-    }
-  }, [displayedText, isTyping, headline]);
+  const availability =
+    settings?.availability || "Available for new projects";
 
-  // Cycle through code snippets
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSnippet((prev) => (prev + 1) % codeSnippets.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
+  const titleLead = settings?.titleLead ?? "Full Stack";
+  const titleLine2 = settings?.titleLine2 ?? "Software";
+  const titleLine3 = settings?.titleLine3 ?? "Engineer";
+
+  const taglineEmphasis =
+    settings?.highlight ?? "scalable apps & APIs";
+
+  const primaryLabel = settings?.primaryCtaLabel ?? "Book a Free Call";
+  const primaryHref = settings?.primaryCtaHref ?? "/#contact";
+  const secondaryLabel = settings?.secondaryCtaLabel ?? "See My Work";
+  const secondaryHref = settings?.secondaryCtaHref ?? "/#projects";
+
+  const description =
+    settings?.description ??
+    "I build production-ready web applications, APIs, and automation — from discovery to deploy — with clear scope, steady communication, and code your team can extend.";
 
   return (
-    <section id="about" className="relative overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-16 left-8 w-2 h-2 bg-[#3d98f4] rounded-full animate-pulse"></div>
-        <div className="absolute top-32 right-16 w-1 h-1 bg-[#10b981] rounded-full animate-ping"></div>
-        <div className="absolute bottom-24 left-1/4 w-1.5 h-1.5 bg-[#f59e0b] rounded-full animate-pulse delay-1000"></div>
-        <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-[#ef4444] rounded-full animate-ping delay-500"></div>
-
-        {/* Floating geometric shapes */}
-        <div className="absolute top-12 right-12 w-6 h-6 sm:w-8 sm:h-8 border border-[#3d98f4]/30 rotate-45 animate-spin-slow"></div>
-        <div className="absolute bottom-16 left-12 w-5 h-5 sm:w-6 sm:h-6 border border-[#10b981]/30 rounded-full animate-bounce-slow"></div>
+    <section
+      id="about"
+      className="relative overflow-hidden py-14 sm:py-20 lg:py-24"
+    >
+      {/* Subtle grid + soft blue glow */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.45]"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(59, 71, 84, 0.4) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(59, 71, 84, 0.4) 1px, transparent 1px)
+          `,
+          backgroundSize: "48px 48px",
+          maskImage:
+            "radial-gradient(ellipse 80% 70% at 50% 0%, black 20%, transparent 75%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 80% 70% at 50% 0%, black 20%, transparent 75%)",
+        }}
+      />
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute -top-32 left-1/2 h-96 w-[min(100%,48rem)] -translate-x-1/2 rounded-full bg-[#3d98f4]/12 blur-3xl" />
+        <div className="absolute top-1/2 right-0 h-64 w-64 translate-x-1/3 rounded-full bg-[#2563eb]/10 blur-3xl" />
       </div>
 
-      <div className="relative z-10 py-6 sm:py-8 md:py-10 lg:py-12">
-        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-center min-h-[500px] sm:min-h-[600px] lg:min-h-[550px]">
-          {/* Left Column - Main Content */}
-          <div className="space-y-5 sm:space-y-6 lg:space-y-7 order-2 lg:order-1">
-            <div className="space-y-4 sm:space-y-5 lg:space-y-6">
-              {/* Animated Headline */}
-              <div className="space-y-2">
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-white leading-tight">
-                  {displayedText}
-                  <span className="animate-pulse text-[#3d98f4]">|</span>
-                </h1>
-                <div className="flex items-center gap-2 text-[#3d98f4] font-semibold text-sm sm:text-base">
-                  <Code2 className="w-4 h-4 sm:w-5 sm:h-5" />
-                  <span>Full-Stack Developer</span>
-                  <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 animate-pulse" />
-                </div>
-              </div>
+      <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-4 text-center sm:px-6">
+        {/* Status */}
+        <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#3d98f4]/40 bg-[#111418]/90 px-4 py-2 backdrop-blur-sm">
+          <span className="size-2 shrink-0 rounded-full bg-[#3d98f4] shadow-[0_0_12px_rgba(61,152,244,0.85)]" />
+          <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#3d98f4] sm:text-xs">
+            {availability}
+          </span>
+        </div>
 
-              {/* Description */}
-              <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-lg">
-                Passionate about creating innovative and user-friendly
-                applications. I specialize in building scalable solutions that
-                make a difference.
-              </p>
+        {/* Headline */}
+        {settings?.headline ? (
+          <h1 className="text-balance text-4xl font-black leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl">
+            {settings.headline}
+          </h1>
+        ) : (
+          <h1 className="text-balance text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">
+            <span className="text-[#3d98f4]">{titleLead}</span>
+            <br />
+            <span className="text-white">{titleLine2}</span>
+            <br />
+            <span className="text-white">{titleLine3}</span>
+          </h1>
+        )}
 
-              <div className="space-y-3">
-                <p className="text-sm text-gray-400 font-medium">Technologies I work with:</p>
-                <div className="flex flex-wrap gap-2">
-                  {techStack?.map((tech, index) => (
-                    <Badge
-                      key={index}
-                      variant="outline"
-                      className="bg-[#1b2127] border-[#3b4754] text-gray-300 hover:border-[#3d98f4] transition-colors duration-300 text-xs sm:text-sm"
-                      style={{ animationDelay: `${index * 100}ms` }}
-                    >
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-            </div>
+        {/* Tagline */}
+        <p className="mt-6 max-w-2xl text-balance text-lg text-[#9cabba] sm:text-xl">
+          {settings?.subheadline ? (
+            settings.subheadline
+          ) : (
+            <>
+              I build{" "}
+              <span className="bg-gradient-to-r from-[#3d98f4] to-[#22d3ee] bg-clip-text font-semibold text-transparent">
+                {taglineEmphasis}
+              </span>{" "}
+              that actually work.
+            </>
+          )}
+        </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <Button
-                asChild
-                size="lg"
-                className="bg-[#3d98f4] hover:bg-[#2d7bd4] text-white font-semibold px-6 sm:px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[#3d98f4]/25"
+        {/* Body */}
+        <p className="mt-5 max-w-2xl text-balance text-sm leading-relaxed text-[#c7d0da] sm:text-base">
+          {description}
+        </p>
+
+        {/* Tech row */}
+        <div className="mt-10 flex max-w-3xl flex-wrap justify-center gap-2">
+          {techStack.map((tech, index) => (
+            <Badge
+              key={`${tech}-${index}`}
+              variant="outline"
+              className="border-[#3b4754] bg-[#111418]/80 px-3 py-1 text-xs font-medium text-white/90 hover:border-[#3d98f4]/50 sm:text-sm"
+            >
+              {tech}
+            </Badge>
+          ))}
+        </div>
+
+        {/* CTAs — primary = book (blue), secondary = outline */}
+        <div className="mt-10 flex w-full max-w-md flex-col gap-3 sm:max-w-none sm:flex-row sm:justify-center">
+          <Button
+            asChild
+            size="lg"
+            className="h-12 rounded-xl bg-[#3d98f4] px-8 text-base font-semibold text-white shadow-lg shadow-[#3d98f4]/20 hover:bg-[#2d7bd4]"
+          >
+            <Link
+              href={primaryHref}
+              className="inline-flex items-center justify-center gap-2"
+            >
+              <Calendar className="size-4 shrink-0" />
+              {primaryLabel}
+            </Link>
+          </Button>
+          <Button
+            asChild
+            size="lg"
+            variant="outline"
+            className="h-12 rounded-xl border-[#3b4754] bg-[#111418]/80 px-8 text-base font-semibold text-white hover:border-[#3d98f4]/50 hover:bg-[#1b2127]"
+          >
+            <Link
+              href={secondaryHref}
+              className="inline-flex items-center justify-center gap-2"
+            >
+              {secondaryLabel}
+              <ArrowRight className="size-4 shrink-0" />
+            </Link>
+          </Button>
+        </div>
+
+        {/* Stats bar */}
+        <div className="mt-14 sm:mt-16 w-full max-w-4xl">
+          <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-[#283039] bg-[#283039] lg:grid-cols-4">
+            {stats.map((stat, i) => (
+              <div
+                key={stat._id || stat._key || `${stat.value}-${stat.label}-${i}`}
+                className="flex flex-col items-center justify-center bg-[#1b2127]/95 px-3 py-5 backdrop-blur-sm sm:py-6"
               >
-                <Link href="/#projects">
-                  View My Work
-                  <ChevronRight className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-[#3b4754] text-black bg-slate-100 hover:bg-[#1b2127] font-semibold px-6 sm:px-8 py-3 rounded-lg transition-all duration-300"
-              >
-                Get In Touch
-              </Button>
-            </div>
-          </div>
-
-          {/* Right Column - Interactive Code Display */}
-          <div className="relative order-1 lg:order-2">
-            {/* Fixed container to prevent layout shifts */}
-            <div className="w-full max-w-md mx-auto lg:max-w-none">
-              <div className="bg-[#0d1117] rounded-lg border border-[#30363d] overflow-hidden shadow-2xl">
-                {/* Terminal Header */}
-                <div className="flex items-center gap-2 px-4 py-3 bg-[#161b22] border-b border-[#30363d]">
-                  <div className="flex gap-2">
-                    <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
-                    <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
-                    <div className="w-3 h-3 rounded-full bg-[#27ca3f]"></div>
-                  </div>
-                  <div className="flex-1 text-center">
-                    <span className="text-sm text-gray-400 font-mono">
-                      {codeSnippets[currentSnippet].language}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Code Content - Fixed height to prevent layout shifts */}
-                <div className="p-4 sm:p-6 h-32 sm:h-40 lg:h-48 flex items-center">
-                  <div className="w-full overflow-hidden">
-                    <pre className="text-xs sm:text-sm font-mono text-gray-300 leading-relaxed whitespace-pre-wrap">
-                      <code className="language-javascript">
-                        {codeSnippets[currentSnippet].code}
-                      </code>
-                    </pre>
-                  </div>
-                </div>
-
-                {/* Progress Indicators */}
-                <div className="flex gap-1 px-4 pb-4">
-                  {codeSnippets.map((_, index) => (
-                    <div
-                      key={index}
-                      className={`h-1 flex-1 rounded-full transition-colors duration-300 ${
-                        index === currentSnippet
-                          ? "bg-[#3d98f4]"
-                          : "bg-[#30363d]"
-                      }`}
-                    />
-                  ))}
-                </div>
+                <span className="text-2xl font-black tabular-nums text-white sm:text-3xl">
+                  {stat.value}
+                </span>
+                <span className="mt-1 max-w-[9rem] text-center text-[11px] font-medium leading-snug text-[#9cabba] sm:text-xs">
+                  {stat.label}
+                </span>
               </div>
-
-              {/* Floating Stats - Responsive positioning */}
-              <div className="absolute -bottom-3 -left-1 sm:-bottom-4 sm:-left-4 bg-[#1b2127] border border-[#3b4754] rounded-lg p-3 sm:p-4 shadow-lg">
-                <div className="text-center">
-                  <div className="text-xl sm:text-2xl font-bold text-[#3d98f4]">
-                    25+
-                  </div>
-                  <div className="text-xs text-gray-400">Projects Built</div>
-                </div>
-              </div>
-
-              <div className="absolute -top-3 -right-1 sm:-top-4 sm:-right-4 bg-[#1b2127] border border-[#3b4754] rounded-lg p-3 sm:p-4 shadow-lg">
-                <div className="text-center">
-                  <div className="text-xl sm:text-2xl font-bold text-[#10b981]">
-                    3+
-                  </div>
-                  <div className="text-xs text-gray-400">Years Experience</div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

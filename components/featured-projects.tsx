@@ -31,7 +31,6 @@ export async function getFeaturedProjects(): Promise<Project[]> {
       dateModified
     }`
   );
-  console.log("res: ", res)
   return res;
 }
 
@@ -40,7 +39,7 @@ export default async function FeaturedProjects() {
   return (
     <section
       id="projects"
-      className="space-y-6 sm:space-y-8 py-12 sm:py-14 lg:py-16"
+      className="space-y-8 py-12 sm:py-16 lg:py-20"
     >
       {/* Section Header */}
       <div className="text-center space-y-3 sm:space-y-4">
@@ -50,12 +49,12 @@ export default async function FeaturedProjects() {
             Featured Work
           </span>
         </div>
-        <h2 className="text-white text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight">
-          Projects That Make an Impact
+        <h2 className="text-white text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">
+          Featured Projects
         </h2>
-        <p className="text-[#9cabba] text-base sm:text-lg max-w-2xl mx-auto">
-          Showcasing innovative solutions built with cutting-edge technologies
-          and thoughtful design
+        <p className="text-[#9cabba] text-base sm:text-lg max-w-3xl mx-auto">
+          Selected builds across full-stack applications, backend systems, and
+          automation-heavy products.
         </p>
       </div>
 
@@ -63,14 +62,14 @@ export default async function FeaturedProjects() {
       <div className="max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
           {featuredProjects.map((project) => (
-            <div
+            <article
               key={project._id}
-              className="group relative bg-gradient-to-br from-[#1b2127] to-[#151a1f] rounded-2xl overflow-hidden border border-[#3b4754] hover:border-[#3d98f4]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[#3d98f4]/10"
+              className="group relative bg-gradient-to-br from-[#1b2127] to-[#151a1f] rounded-3xl overflow-hidden border border-[#3b4754] hover:border-[#3d98f4]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[#3d98f4]/10"
             >
               {/* Project Image */}
               <div className="relative overflow-hidden">
                 <Image
-                  src={project.image}
+                  src={project.image ?? "/placeholder.svg"}
                   alt={`${project.title} - ${project.overview}`}
                   priority={true}
                   width={500}
@@ -96,9 +95,9 @@ export default async function FeaturedProjects() {
                 <div className="flex flex-wrap gap-2">
                   {project.skills.slice(0, 3).map((tech) => (
                     <Link key={tech._id} href={`/skills/${tech.slug.current}`}>
-                      <Badge
+                    <Badge
                         variant="outline"
-                        className="bg-[#283039] border-[#3b4754] text-[#9cabba] text-xs hover:border-[#3d98f4] transition-colors"
+                      className="bg-[#283039] border-[#3b4754] text-[#9cabba] text-xs hover:border-[#3d98f4] transition-colors rounded-full"
                       >
                         {tech.name}
                       </Badge>
@@ -107,7 +106,7 @@ export default async function FeaturedProjects() {
                   {project.skills.length > 3 && (
                     <Badge
                       variant="outline"
-                      className="bg-[#283039] border-[#3b4754] text-[#9cabba] text-xs"
+                      className="bg-[#283039] border-[#3b4754] text-[#9cabba] text-xs rounded-full"
                     >
                       +{project.skills.length - 3}
                     </Badge>
@@ -158,8 +157,8 @@ export default async function FeaturedProjects() {
               </div>
 
               {/* Hover Effect Border */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#3d98f4] to-[#10b981] opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-xl"></div>
-            </div>
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#3d98f4] to-[#10b981] opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-xl"></div>
+            </article>
           ))}
         </div>
       </div>

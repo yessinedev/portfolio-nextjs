@@ -4,12 +4,15 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
 import { useState, useEffect } from "react"
-import { X, Download, ExternalLink, User, Briefcase, Code, Mail } from "lucide-react"
+import { X, Download, ExternalLink, User, Briefcase, Code, Mail, Sparkles, DollarSign } from "lucide-react"
 
 const navigationLinks = [
   { name: "About", href: "/#about", icon: User },
+  { name: "Services", href: "/#services", icon: Sparkles },
   { name: "Projects", href: "/#projects", icon: Briefcase },
+  { name: "Experience", href: "/#experience", icon: Briefcase },
   { name: "Skills", href: "/#skills", icon: Code },
+  { name: "Pricing", href: "/#pricing", icon: DollarSign },
   { name: "Contact", href: "/#contact", icon: Mail },
 ]
 
@@ -147,7 +150,7 @@ export default function Header() {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-8">
+            <nav className="hidden lg:flex items-center space-x-6">
               {navigationLinks.map((link) => (
                 <Link
                   key={link.name}

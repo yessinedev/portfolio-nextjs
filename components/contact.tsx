@@ -22,8 +22,9 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import Link from "next/link";
+import { ContactSettings } from "@/lib/types";
 
-const contactInfo = [
+const defaultContactInfo = [
   {
     icon: Mail,
     label: "Email",
@@ -60,7 +61,7 @@ const availabilitySlots = [
   { day: "Sunday", time: "By appointment only" },
 ];
 
-export default function Contact() {
+export default function Contact({ settings }: { settings?: ContactSettings }) {
   const [isSending, setIsSending] = useState(false);
   const form = useRef<HTMLFormElement | null>(null);
 
@@ -96,6 +97,26 @@ export default function Contact() {
       }
     }
   };
+
+  const contactInfo = defaultContactInfo.map((info) => {
+    if (info.label === "Email" && settings?.email) {
+      return { ...info, value: settings.email, href: `mailto:${settings.email}` };
+    }
+    if (info.label === "Phone" && settings?.phone) {
+      return { ...info, value: settings.phone, href: `tel:${settings.phone}` };
+    }
+    if (info.label === "Location" && settings?.location) {
+      return {
+        ...info,
+        value: settings.location,
+        href: `https://maps.google.com/?q=${encodeURIComponent(settings.location)}`,
+      };
+    }
+    if (info.label === "Timezone" && settings?.timezone) {
+      return { ...info, value: settings.timezone };
+    }
+    return info;
+  });
 
   return (
     <section

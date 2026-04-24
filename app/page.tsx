@@ -3,6 +3,14 @@ import FeaturedProjects from "@/components/featured-projects";
 import Contact from "@/components/contact";
 import SkillsServer from "@/components/SkillsServer";
 import { Metadata } from "next";
+import ServicesSection from "@/components/services-section";
+import WorkExperienceServer from "@/components/work-experience-server";
+import ProcessSection from "@/components/process-section";
+import TestimonialsSection from "@/components/testimonials-section";
+import PricingSection from "@/components/pricing-section";
+import { client } from "@/sanity/lib/client";
+import { getSiteSettings } from "@/sanity/lib/queries";
+import { SiteSettings } from "@/lib/types";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -35,7 +43,9 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function Home() {
+export default async function Home() {
+  const settings: SiteSettings | null = await client.fetch(getSiteSettings);
+
   return (
     <div
       className="relative flex size-full min-h-screen flex-col bg-[#111418] dark group/design-root overflow-x-hidden"
@@ -44,10 +54,15 @@ export default function Home() {
       <div className="layout-container flex h-full grow flex-col">
         <div className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 flex flex-1 justify-center py-3 sm:py-4 md:py-5">
           <div className="layout-content-container flex flex-col max-w-[1200px] flex-1">
-            <Hero />
+            <Hero settings={settings?.hero} />
+            <ServicesSection />
             <FeaturedProjects />
+            <WorkExperienceServer />
             <SkillsServer />
-            <Contact />
+            <ProcessSection />
+            <TestimonialsSection />
+            <PricingSection />
+            <Contact settings={settings?.contact} />
           </div>
         </div>
       </div>

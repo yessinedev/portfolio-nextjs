@@ -1,12 +1,14 @@
 export interface Skill {
   _id: string;
   name: string;
-  level: number;
-  description: string;
+  slug: {
+    current: string;
+    _type: string;
+  };
+  description?: string;
   icon: string;
-  category: string;
-  years: number;
-  projects: Project[];
+  years?: number;
+  projects?: Project[];
 }
 
 export interface SkillCategory {
@@ -44,12 +46,111 @@ export interface ProjectLink {
   type: "demo" | "github" | "case-study";
 }
 
-export interface Skill {
+export interface Metric {
+  _id?: string;
+  _key?: string;
+  value: string;
+  label: string;
+}
+
+export interface HeroSettings {
+  eyebrow?: string;
+  headline?: string;
+  highlight?: string;
+  /** One-line hero tagline; if omitted, a default with optional `highlight` span is used */
+  subheadline?: string;
+  /** First accent line, e.g. "Full Stack" */
+  titleLead?: string;
+  titleConnector?: string;
+  titleLine2?: string;
+  titleLine3?: string;
+  description?: string;
+  availability?: string;
+  primaryCtaLabel?: string;
+  primaryCtaHref?: string;
+  secondaryCtaLabel?: string;
+  secondaryCtaHref?: string;
+  stats?: Metric[];
+  technologies?: string[];
+}
+
+export interface ContactSettings {
+  email?: string;
+  phone?: string;
+  location?: string;
+  timezone?: string;
+}
+
+export interface SiteSettings {
   _id: string;
-  name: string;
-  slug: {
-    current: string;
-    _type: string;
-  };
-  icon: string; // assuming the skill has an icon or similar field
+  hero?: HeroSettings;
+  contact?: ContactSettings;
+}
+
+export interface Service {
+  _id: string;
+  title: string;
+  eyebrow?: string;
+  description: string;
+  icon?: string;
+  accentColor?: string;
+  metrics?: Metric[];
+  technologies?: string[];
+  featured?: boolean;
+  order?: number;
+}
+
+export interface Experience {
+  _id: string;
+  company: string;
+  role: string;
+  companyLogo?: string;
+  companyUrl?: string;
+  startDate: string;
+  endDate?: string;
+  displayDate?: string;
+  location?: string;
+  current?: boolean;
+  summary: string;
+  achievements?: string[];
+  technologies?: string[];
+  order?: number;
+}
+
+export interface ProcessStep {
+  _id: string;
+  stepNumber: string;
+  label?: string;
+  title: string;
+  description: string;
+  timeline?: string;
+  icon?: string;
+  order?: number;
+}
+
+export interface Testimonial {
+  _id: string;
+  clientName: string;
+  clientRole?: string;
+  company?: string;
+  projectLabel?: string;
+  avatar?: string;
+  initials?: string;
+  rating?: number;
+  quote: string;
+  order?: number;
+}
+
+export interface PricingPlan {
+  _id: string;
+  title: string;
+  priceRange: string;
+  subtitle?: string;
+  deliveryTime?: string;
+  features?: string[];
+  highlighted?: boolean;
+  badge?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  order?: number;
 }
